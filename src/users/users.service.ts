@@ -8,7 +8,6 @@ import { Login } from '../admin/entities/logins.entity';
 import { UpdateUserServiceDto } from './dto/update-user-service.dto';
 import { Service } from '../services/entities/service.entity';
 import { endOfYesterday, format } from 'date-fns';
-import { faker } from '@faker-js/faker';
 
 @Injectable()
 export class UsersService {
@@ -118,32 +117,5 @@ export class UsersService {
     };
   }
 
-  async seed() {
-    const users: CreateUserDto[] = [];
-
-    try {
-      for (let i = 0; i <= 10; i++) {
-        users.push({
-          user_name: faker.person.firstName(),
-          index_number: faker.string.numeric({ length: 5 }),
-          nic_number: faker.string.numeric({ length: 9 }),
-          faculty: faker.helpers.arrayElement([
-            'science',
-            'arts',
-            'management',
-            'medicine',
-          ]),
-        });
-      }
-      const promises = users.map((user) => this.usersRepository.save(user));
-      await Promise.all(promises);
-      return {
-        success: true,
-      };
-    } catch (error) {
-      return {
-        success: false,
-      };
-    }
-  }
+  
 }
