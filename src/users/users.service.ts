@@ -97,6 +97,7 @@ export class UsersService {
       where: {
         updated_at: MoreThan(new Date(endOfYesterday())),
       },
+      take: 12,
     });
   }
 
@@ -116,6 +117,4 @@ export class UsersService {
       medicine,
     };
   }
-
-  
 }
