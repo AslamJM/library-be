@@ -102,19 +102,29 @@ export class UsersService {
   }
 
   async groupByFaculty() {
-    const science = await this.usersRepository.countBy({ faculty: 'science' });
-    const arts = await this.usersRepository.countBy({ faculty: 'arts' });
+    const animal_science = await this.usersRepository.countBy({
+      faculty: 'Animal Science & Export Agriculture',
+    });
+    const applied_science = await this.usersRepository.countBy({
+      faculty: 'Applied Sciences',
+    });
     const management = await this.usersRepository.countBy({
-      faculty: 'management',
+      faculty: 'Management',
     });
+    const techno_studies = await this.usersRepository.countBy({
+      faculty: 'Technological Studies',
+    });
+
     const medicine = await this.usersRepository.countBy({
-      faculty: 'medicine',
+      faculty: 'Medicine',
     });
+
     return {
-      science,
-      arts,
+      animal_science,
       management,
+      applied_science,
       medicine,
+      techno_studies,
     };
   }
 }
