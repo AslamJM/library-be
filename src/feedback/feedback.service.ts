@@ -33,15 +33,15 @@ export class FeedbackService {
   }
 
   findOne(id: number) {
-    return this.userRepository.findOne({ where: { id } });
+    return this.feedbackRepository.findOne({ where: { id } });
   }
 
   async update(id: number, updateFeedbackDto: UpdateFeedbackDto) {
     const feedback = await this.feedbackRepository.findOne({ where: { id } });
-    return this.userRepository.save({ ...feedback, ...updateFeedbackDto });
+    return this.feedbackRepository.save({ ...feedback, ...updateFeedbackDto });
   }
 
   remove(id: number) {
-    return this.userRepository.delete(id);
+    return this.feedbackRepository.delete(id);
   }
 }
