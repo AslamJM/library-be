@@ -10,6 +10,7 @@ import { ServicesModule } from './services/services.module';
 import { Service } from './services/entities/service.entity';
 import { AdminModule } from './admin/admin.module';
 import { Login } from './admin/entities/logins.entity';
+import { Admin } from './admin/entities/admin.entity';
 import { ConfigModule } from '@nestjs/config';
 import { FeedbackModule } from './feedback/feedback.module';
 import { Feedback } from './feedback/entities/feedback.entity';
@@ -35,7 +36,7 @@ import { Feedback } from './feedback/entities/feedback.entity';
       // password: 'pscale_pw_KCaa4y8JnWYmmkLFJ2mcP5M7MwYh4D3OyJpjDWlCTn8',
       // database: 'library-app',
       url: 'postgres://aslam:7LOK0laoHn0Xq6Lh0LOzozW2uJKHOLPv@dpg-cjsmc3r6fquc739o25a0-a.oregon-postgres.render.com/libraryapp_5lvw',
-      entities: [User, Service, Login, Feedback],
+      entities: [User, Service, Login, Feedback, Admin],
       synchronize: true,
       ssl: {
         rejectUnauthorized: true,
